@@ -15,7 +15,7 @@ class MarkdownPage(Page):
         return read(self.path())
 
 
-class HtmlPage(Page):
+class SkeletonPage(Page):
     def __init__(self, directory, filename, contents):
         Page.__init__(self, directory, filename)
         self._contents = contents
