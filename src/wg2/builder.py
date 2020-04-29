@@ -1,35 +1,7 @@
 import os
 import re
 
-
-def read(f):
-    with open(f) as input_file:
-        return input_file.read()
-
-
-class MarkdownPage:
-    def __init__(self, root, filename):
-        self.root = root
-        self.filename = filename
-
-    def contents(self):
-        return read(self.path())
-
-    def path(self):
-        return os.path.join(self.root, self.filename)
-
-
-class HtmlPage:
-    def __init__(self, directory, filename, contents):
-        self._contents = contents
-        self.filename = filename
-        self.directory = directory
-
-    def path(self):
-        return os.path.join(self.directory, self.filename)
-
-    def contents(self):
-        return self._contents
+from wg2.pages import MarkdownPage, HtmlPage
 
 
 class PageWriter:
@@ -49,7 +21,7 @@ class MarkdownConverter:
 
     def convert(self, markdown_page: MarkdownPage):
         html_filename = self.HTML_RE.sub('.html', markdown_page.filename)
-        relative_path = os.path.relpath(markdown_page.root, self.content_directory )
+        relative_path = os.path.relpath(markdown_page.directory, self.content_directory)
         html_path = os.path.join(self.target_directory, relative_path)
         html_page = HtmlPage(html_path, html_filename, markdown_page.contents())
         self.page_writer.write(html_page)
