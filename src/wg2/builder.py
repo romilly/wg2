@@ -5,7 +5,7 @@ import markdown
 from jinja2 import Template
 
 from wg2.helpers import read
-from wg2.pages import MarkdownPage, SkeletonPage
+from wg2.pages import MarkdownPage, SkeletonPage, HtmlPage
 
 
 class PageWriter:
@@ -20,7 +20,10 @@ class HtmlFormatter:
         self.page_writer = page_writer
 
     def format(self, skeleton_page: SkeletonPage):
-        self.page_writer.write(skeleton_page)
+        template =  Template('<html>{{ body }}</html>')
+        html = template.render(body=skeleton_page.contents())
+        html_page = skeleton_page.html_page(html)
+        self.page_writer.write(html_page)
 
 
 class MarkdownConverter:
@@ -37,8 +40,6 @@ class MarkdownConverter:
         relative_path = os.path.relpath(markdown_page.directory, self.content_directory)
         html_path = os.path.join(self.target_directory, relative_path)
         html = self.md.convert(markdown_page.contents())
-        template =  Template('<html>{{ body }}</html>')
-        html = template.render(body=html)
         skeleton_page = SkeletonPage(html_path, html_filename, html)
         self.html_formatter.format(skeleton_page)
 

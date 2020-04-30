@@ -14,11 +14,16 @@ class Page:
         return self._contents
 
 
+class HtmlPage(Page):
+    pass
+
 class MarkdownPage(Page):
     pass
 
 
 class SkeletonPage(Page):
-    pass
+    def html_page(self, contents):
+        return HtmlPage(self.directory, self.filename, contents)
+
 
 
