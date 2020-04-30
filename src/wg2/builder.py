@@ -4,6 +4,7 @@ import re
 import markdown
 from jinja2 import Template
 
+from wg2.helpers import read
 from wg2.pages import MarkdownPage, SkeletonPage
 
 
@@ -50,6 +51,7 @@ class SiteBuilder:
         for root, directories, files in os.walk(content_directory):
             for f in files:
                 if f.endswith('.md'):
-                    markdown_page = MarkdownPage(root, f)
+                    contents = read(os.path.join(root, f))
+                    markdown_page = MarkdownPage(root, f, contents)
                     converter.convert(markdown_page)
                     

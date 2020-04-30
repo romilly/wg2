@@ -8,7 +8,7 @@ from hamcrest.core.description import Description
 
 from hamcrest_helpers.files import is_empty_directory, contains_files
 from wg2.builder import SiteBuilder
-from wg2.pages import read
+from wg2.helpers import read
 
 
 def empty_directory(directory):
