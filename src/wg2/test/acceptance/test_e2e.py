@@ -7,7 +7,7 @@ from hamcrest.core.base_matcher import BaseMatcher, T
 from hamcrest.core.description import Description
 
 from hamcrest_helpers.files import is_empty_directory, contains_files
-from wg2.builder import SiteBuilder
+from wg2.builder import SiteBuilder, PageWriter, HtmlFormatter, MarkdownConverter
 from wg2.helpers import read
 
 
@@ -43,12 +43,17 @@ def file_content(matcher):
 
 class EndToEndTestCase(unittest.TestCase):
     def setUp(self):
-        self.site_builder = SiteBuilder()
+        page_writer = PageWriter()
+        html_formatter = HtmlFormatter(page_writer)
+        self.site_builder = SiteBuilder(MarkdownConverter('generated', 'content', html_formatter), 'content')
         empty_directory('generated')
 
     def test_html_pages_are_generated_from_markdown(self):
         assert_that('generated', is_empty_directory())
-        self.site_builder.build('content','generated')
+        self.site_builder.build_site()
         assert_that('generated', contains_files('index.html','about/about.html', 'contact/contact.html'))
-        assert_that('generated/index.html', file_content(string_contains_in_order('<html>','</html>')))
+        assert_that('generated/index.html', file_content(string_contains_in_order('<html lang="en">','</html>')))
+        assert_that('generated/index.html', file_content(string_contains_in_order('<meta name="description" content="Tips, tools and resources for Digital Makers">')))
+        assert_that('generated/index.html', file_content(string_contains_in_order('<head>','<title>RARESchool</title>')))
+        assert_that('generated/index.html', file_content(string_contains_in_order('<body>','<h1>RARESchool</h1>')))
 

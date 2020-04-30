@@ -22,6 +22,10 @@ class MarkdownPage(Page):
 
 
 class SkeletonPage(Page):
+    def __init__(self, directory, filename, contents, metadata):
+        Page.__init__(self, directory, filename, contents)
+        self.metadata = metadata
+
     def html_page(self, contents):
         return HtmlPage(self.directory, self.filename, contents)
 
