@@ -3,7 +3,8 @@ from typing import List
 
 from hamcrest import assert_that, equal_to
 
-from wg2.builder import SiteBuilder, Converter
+from wg2.builder import SiteBuilder
+from wg2.transformers import Converter
 from wg2.pages import MarkdownPage
 
 

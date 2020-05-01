@@ -1,4 +1,7 @@
 import os
+import re
+import shutil
+from abc import ABC, abstractmethod
 
 
 class Page:
@@ -17,8 +20,16 @@ class Page:
 class HtmlPage(Page):
     pass
 
+
+class ImageCopier(ABC):
+    @abstractmethod
+    def copy(self, image_path):
+        pass
+
+
 class MarkdownPage(Page):
-    pass
+    def with_contents(self, contents):
+        return MarkdownPage(self.directory, self.filename, contents)
 
 
 class SkeletonPage(Page):
@@ -30,4 +41,17 @@ class SkeletonPage(Page):
         return HtmlPage(self.directory, self.filename, contents)
 
 
+class ImageFileCopier(ImageCopier):
+    IMG_DIRECTORY = 'img'
+
+    def __init__(self, content_root, output_directory):
+        self.content_root = content_root
+        self.target_directory = os.path.join(output_directory, self.IMG_DIRECTORY)
+        os.makedirs(self.target_directory, exist_ok=True)
+
+    def copy(self, image_path):
+        _, image_file_name = os.path.split(image_path)
+        new_location = os.path.join(self.IMG_DIRECTORY, image_file_name)
+        shutil.copy(os.path.join(self.content_root, image_path), os.path.join(self.target_directory, image_file_name))
+        return new_location
 
