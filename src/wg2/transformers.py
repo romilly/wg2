@@ -93,6 +93,7 @@ class MarkdownConverter(Converter):
         html, metadata = self.convert_content(markdown_page)
         skeleton_page = SkeletonPage(html_path, html_filename, html, metadata)
         self.html_formatter.format(skeleton_page)
+        return skeleton_page
 
     def convert_content(self, markdown_page):
         self.md.reset()

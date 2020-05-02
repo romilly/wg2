@@ -32,8 +32,8 @@ class MarkdownImageLocaliserTestCase(unittest.TestCase):
 
     def test_images_are_localised(self):
         processed_page = self.localiser.convert(self.markdown_page)
-        assert_that(processed_page.contents(), string_contains_in_order('# Hello\n', '![xxx](img/path_to_image/test.jpg)'))
+        assert_that(processed_page.contents(),
+                    string_contains_in_order('# Hello\n', '![xxx](img/path_to_image/test.jpg)'))
 
 
-if __name__ == '__main__':
-    unittest.main()
+
