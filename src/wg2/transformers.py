@@ -62,6 +62,7 @@ class MarkdownImageLocaliser(Converter):
         contents = self.make_images_local(markdown_page.contents())
         localised_page = markdown_page.with_contents(contents)
         self.converter.convert(localised_page)
+        return localised_page
 
     def make_image_local(self, line):
         def localise_image(match):
