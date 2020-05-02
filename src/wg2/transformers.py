@@ -9,7 +9,13 @@ from wg2.helpers import read
 from wg2.pages import SkeletonPage, MarkdownPage, HtmlPage, ImageCopier
 
 
-class PageWriter:
+class Writer(ABC):
+    @abstractmethod
+    def write(self, html_page: SkeletonPage):
+        pass
+
+
+class PageWriter(Writer):
     def write(self, html_page: SkeletonPage):
         os.makedirs(html_page.directory, exist_ok=True)
         with open(html_page.path(),'w') as html_file:
@@ -23,14 +29,15 @@ class Formatter(ABC):
 
 
 class HtmlFormatter(Formatter):
-    def __init__(self, page_writer: PageWriter):
+    def __init__(self, page_writer: Writer):
         self.page_writer = page_writer
 
-    def format(self, skeleton_page: SkeletonPage):
+    def format(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
         html = template.render(contents=skeleton_page.contents(), **skeleton_page.metadata)
         html_page = skeleton_page.html_page(html)
         self.page_writer.write(html_page)
+        return html_page
 
     def template_for(self, page):
         t = read('templates/index.html')
@@ -71,7 +78,6 @@ class MarkdownImageLocaliser(Converter):
         return '\n'.join(self.make_image_local(line) for line in lines)
 
 
-
 class MarkdownConverter(Converter):
     HTML_RE = re.compile("\.md$")
 
@@ -95,3 +101,4 @@ class MarkdownConverter(Converter):
             if len(metadata[key]) == 1:
                 metadata[key] = metadata[key][0]  # meta should contain values, not singleton lists of values!
         return html, metadata
+
