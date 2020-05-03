@@ -34,6 +34,8 @@ So:
 1. See what happens!
 
 After some refactoring all tests are passing.
+
+
 Next, remove successors from each transformer.
 
-
+All working - time to return to adding functionality from Trello!

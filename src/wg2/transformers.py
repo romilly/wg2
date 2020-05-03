@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 import markdown
 from jinja2 import Template
 
-from wg2.helpers import read
+from wg2.files import read
 from wg2.pages import SkeletonPage, MarkdownPage, HtmlPage, ImageCopier, Page
 
 
@@ -22,11 +22,11 @@ class PageWriter(PageProcessor):
             html_file.write(html_page.contents())
 
 
-
 class HtmlFormatter(PageProcessor):
 
     def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
+        skeleton_page.metadata['script_prefix'] = skeleton_page.depth()*'../'
         html = template.render(contents=skeleton_page.contents(), **skeleton_page.metadata)
         html_page = skeleton_page.html_page(html)
         return html_page

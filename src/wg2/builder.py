@@ -1,9 +1,11 @@
 import os
+import shutil
 
-from wg2.helpers import read
+from wg2.files import read, empty_directory
 from wg2.pages import MarkdownPage
 from wg2.transformers import PageProcessor
 
+BOOTSTRAP_LOCATION = 'bootstrap'
 
 class SiteBuilder:
     def __init__(self, converter: PageProcessor, content_directory):
@@ -11,6 +13,8 @@ class SiteBuilder:
         self.converter = converter
 
     def build_site(self):
+        empty_directory('generated')
+        shutil.copytree(BOOTSTRAP_LOCATION, 'generated')
         for root, directories, files in os.walk(self.content_directory):
             for f in files:
                 if f.endswith('.md'):

@@ -16,6 +16,8 @@ class Page:
     def contents(self):
         return self._contents
 
+    def depth(self):
+        return len([ch for ch in self.directory if ch == '/']) - 1
 
 class HtmlPage(Page):
     pass
