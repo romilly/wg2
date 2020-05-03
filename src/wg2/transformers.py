@@ -6,37 +6,32 @@ import markdown
 from jinja2 import Template
 
 from wg2.helpers import read
-from wg2.pages import SkeletonPage, MarkdownPage, HtmlPage, ImageCopier
+from wg2.pages import SkeletonPage, MarkdownPage, HtmlPage, ImageCopier, Page
 
 
-class Writer(ABC):
+class PageProcessor(ABC):
     @abstractmethod
-    def write(self, html_page: SkeletonPage):
+    def convert(self, page: Page) -> Page:
         pass
 
 
-class PageWriter(Writer):
-    def write(self, html_page: SkeletonPage):
+class PageWriter(PageProcessor):
+    def convert(self, html_page: SkeletonPage):
         os.makedirs(html_page.directory, exist_ok=True)
         with open(html_page.path(),'w') as html_file:
             html_file.write(html_page.contents())
 
 
-class Formatter(ABC):
-    @abstractmethod
-    def format(self, skeleton_page: SkeletonPage):
-        pass
 
-
-class HtmlFormatter(Formatter):
-    def __init__(self, page_writer: Writer):
+class HtmlFormatter(PageProcessor):
+    def __init__(self, page_writer: PageProcessor):
         self.page_writer = page_writer
 
-    def format(self, skeleton_page: SkeletonPage) -> HtmlPage:
+    def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
         html = template.render(contents=skeleton_page.contents(), **skeleton_page.metadata)
         html_page = skeleton_page.html_page(html)
-        self.page_writer.write(html_page)
+        self.page_writer.convert(html_page)
         return html_page
 
     def template_for(self, page):
@@ -44,17 +39,11 @@ class HtmlFormatter(Formatter):
         return Template(t)
 
 
-class Converter(ABC):
-    @abstractmethod
-    def convert(self, markdown_page: MarkdownPage):
-        pass
-
-
-class MarkdownImageLocaliser(Converter):
+class MarkdownImageLocaliser(PageProcessor):
     IMAGE_LINE_RE = re.compile('^!\[([^]]*)\]\(([^)]*)\)')
     IMAGE_DIRECTORY = 'img'
 
-    def __init__(self, converter: Converter, image_copier: ImageCopier):
+    def __init__(self, converter: PageProcessor, image_copier: ImageCopier):
         self.image_copier = image_copier
         self.converter = converter
 
@@ -79,10 +68,10 @@ class MarkdownImageLocaliser(Converter):
         return '\n'.join(self.make_image_local(line) for line in lines)
 
 
-class MarkdownConverter(Converter):
+class MarkdownPageProcessor(PageProcessor):
     HTML_RE = re.compile("\.md$")
 
-    def __init__(self, target_directory, html_formatter: Formatter):
+    def __init__(self, target_directory, html_formatter: PageProcessor):
         self.html_formatter = html_formatter
         self.target_directory = target_directory
         self.md = markdown.Markdown(extensions = ['meta'])
@@ -92,7 +81,7 @@ class MarkdownConverter(Converter):
         html_path = os.path.join(self.target_directory, markdown_page.directory)
         html, metadata = self.convert_content(markdown_page)
         skeleton_page = SkeletonPage(html_path, html_filename, html, metadata)
-        self.html_formatter.format(skeleton_page)
+        self.html_formatter.convert(skeleton_page)
         return skeleton_page
 
     def convert_content(self, markdown_page):

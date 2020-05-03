@@ -2,11 +2,11 @@ import os
 
 from wg2.helpers import read
 from wg2.pages import MarkdownPage
-from wg2.transformers import Converter
+from wg2.transformers import PageProcessor
 
 
 class SiteBuilder:
-    def __init__(self, converter: Converter, content_directory):
+    def __init__(self, converter: PageProcessor, content_directory):
         self.content_directory = content_directory
         self.converter = converter
 
@@ -20,5 +20,6 @@ class SiteBuilder:
                         relative_path = ''
                     markdown_page = MarkdownPage(relative_path, f, contents)
                     self.converter.convert(markdown_page)
+
 
 

@@ -11,4 +11,29 @@ For each transformer I will
 1. Get the e2e test running
 1. Get rid of the buck-passing
 
+So - almost there, and I realise that the one thing I must use pass-the-buck to test is the site-builder itself.
+
+So I guess I need to undo all the work - or do I? I'll have a ponder.
+
+Maybe do the transformation chain in a PipelineConverter, which takes MarkdownPages in and passes on HtmlPages to a Writer?
+
+
+## Sunday 03 May 2020
+
+I'm getting rid of the ADRs as these duplicate the more detailed discussion in this journal.
+
+Slept on it, and am growing to try a PipelineConverter which combines the transformers, taking MarkdownPages as inputs
+sending HtmlPages to a writer.
+
+I made more progress than I gave myself credit for, but adding some good unit tests for the transformers.
+
+So:
+
+1. Create a PipelineConverter which implements Converter constructed from a list of transformers ending with a sink. 
+1. Use it in the e2e test.
+1. See what happens!
+
+After some refactoring all tests are passing.
+Next, remove successors from each transformer.
+
 

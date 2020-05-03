@@ -3,11 +3,13 @@ import shutil
 import unittest
 
 from hamcrest import assert_that, string_contains_in_order
+from markdown.extensions.tables import PIPE_LEFT
 
 from hamcrest_helpers.files import contains_files, file_content
 from wg2.builder import SiteBuilder
 from wg2.pages import ImageFileCopier
-from wg2.transformers import PageWriter, HtmlFormatter, MarkdownConverter, MarkdownImageLocaliser
+from wg2.pipeline import PageProcessorPipeline
+from wg2.transformers import PageWriter, HtmlFormatter, MarkdownPageProcessor, MarkdownImageLocaliser
 
 
 def empty_directory(directory):
@@ -21,10 +23,12 @@ class EndToEndTestCase(unittest.TestCase):
         empty_directory('generated')
         page_writer = PageWriter()
         html_formatter = HtmlFormatter(page_writer)
-        mdc = MarkdownConverter('generated', html_formatter)
+        mdc = MarkdownPageProcessor('generated', html_formatter)
         copier = ImageFileCopier('content', 'generated')
         image_localiser = MarkdownImageLocaliser(mdc, copier)
-        self.site_builder = SiteBuilder(image_localiser, 'content')
+        converter = PageProcessorPipeline(image_localiser, mdc, html_formatter, page_writer)
+        self.site_builder = SiteBuilder(converter, 'content')
+
         self.site_builder.build_site()
 
     def test_html_pages_are_generated_from_markdown(self):

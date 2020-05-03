@@ -3,15 +3,15 @@ from typing import List
 
 from hamcrest import assert_that, equal_to, string_contains_in_order
 
-from wg2.transformers import Formatter, MarkdownConverter
+from wg2.transformers import MarkdownPageProcessor, PageProcessor
 from wg2.pages import MarkdownPage, SkeletonPage
 
 
-class MockFormatter(Formatter):
+class MockFormatter(PageProcessor):
     def __init__(self):
         self.skeleton_pages: List[SkeletonPage] = []
 
-    def format(self, skeleton_page: SkeletonPage):
+    def convert(self, skeleton_page: SkeletonPage):
         self.skeleton_pages.append(skeleton_page)
 
 
@@ -19,7 +19,7 @@ class MarkdownConverterTestCase(unittest.TestCase):
     def test_creates_skeleton_html_page(self):
         markdown_page = MarkdownPage('dont_care','source.md', '##does not matter\n\nFoo *bar*')
         formatter = MockFormatter()
-        converter = MarkdownConverter('wherever', formatter)
+        converter = MarkdownPageProcessor('wherever', formatter)
         page = converter.convert(markdown_page)
         assert_that(page.directory, equal_to('wherever/dont_care'))
         assert_that(page.filename, equal_to('source.html'))

@@ -2,8 +2,8 @@ import unittest
 
 from hamcrest import string_contains_in_order, assert_that
 
+from helpers import MockPageProcessor
 from wg2.pages import MarkdownPage, ImageCopier
-from wg2.test.integration.test_site_builder import MockConverter
 from wg2.transformers import MarkdownImageLocaliser
 
 PAGE_WITH_IMAGE="""
@@ -27,7 +27,7 @@ class MockImageCopier(ImageCopier):
 class MarkdownImageLocaliserTestCase(unittest.TestCase):
     def setUp(self) -> None:
         copier = MockImageCopier()
-        self.localiser = MarkdownImageLocaliser(MockConverter(), copier)
+        self.localiser = MarkdownImageLocaliser(MockPageProcessor(), copier)
         self.markdown_page = MarkdownPage('foo','bar.html',PAGE_WITH_IMAGE)
 
     def test_images_are_localised(self):
