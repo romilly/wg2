@@ -22,10 +22,10 @@ class EndToEndTestCase(unittest.TestCase):
     def setUp(self):
         empty_directory('generated')
         page_writer = PageWriter()
-        html_formatter = HtmlFormatter(page_writer)
-        mdc = MarkdownPageProcessor('generated', html_formatter)
+        html_formatter = HtmlFormatter()
+        mdc = MarkdownPageProcessor('generated')
         copier = ImageFileCopier('content', 'generated')
-        image_localiser = MarkdownImageLocaliser(mdc, copier)
+        image_localiser = MarkdownImageLocaliser(copier)
         converter = PageProcessorPipeline(image_localiser, mdc, html_formatter, page_writer)
         self.site_builder = SiteBuilder(converter, 'content')
 

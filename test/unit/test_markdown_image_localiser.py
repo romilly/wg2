@@ -27,7 +27,7 @@ class MockImageCopier(ImageCopier):
 class MarkdownImageLocaliserTestCase(unittest.TestCase):
     def setUp(self) -> None:
         copier = MockImageCopier()
-        self.localiser = MarkdownImageLocaliser(MockPageProcessor(), copier)
+        self.localiser = MarkdownImageLocaliser(copier)
         self.markdown_page = MarkdownPage('foo','bar.html',PAGE_WITH_IMAGE)
 
     def test_images_are_localised(self):

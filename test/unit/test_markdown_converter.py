@@ -18,8 +18,7 @@ class MockFormatter(PageProcessor):
 class MarkdownConverterTestCase(unittest.TestCase):
     def test_creates_skeleton_html_page(self):
         markdown_page = MarkdownPage('dont_care','source.md', '##does not matter\n\nFoo *bar*')
-        formatter = MockFormatter()
-        converter = MarkdownPageProcessor('wherever', formatter)
+        converter = MarkdownPageProcessor('wherever')
         page = converter.convert(markdown_page)
         assert_that(page.directory, equal_to('wherever/dont_care'))
         assert_that(page.filename, equal_to('source.html'))

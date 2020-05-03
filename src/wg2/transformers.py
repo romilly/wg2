@@ -24,14 +24,11 @@ class PageWriter(PageProcessor):
 
 
 class HtmlFormatter(PageProcessor):
-    def __init__(self, page_writer: PageProcessor):
-        self.page_writer = page_writer
 
     def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
         html = template.render(contents=skeleton_page.contents(), **skeleton_page.metadata)
         html_page = skeleton_page.html_page(html)
-        self.page_writer.convert(html_page)
         return html_page
 
     def template_for(self, page):
@@ -43,14 +40,12 @@ class MarkdownImageLocaliser(PageProcessor):
     IMAGE_LINE_RE = re.compile('^!\[([^]]*)\]\(([^)]*)\)')
     IMAGE_DIRECTORY = 'img'
 
-    def __init__(self, converter: PageProcessor, image_copier: ImageCopier):
+    def __init__(self, image_copier: ImageCopier):
         self.image_copier = image_copier
-        self.converter = converter
 
     def convert(self, markdown_page: MarkdownPage):
         contents = self.make_images_local(markdown_page.contents())
         localised_page = markdown_page.with_contents(contents)
-        self.converter.convert(localised_page)
         return localised_page
 
     def make_image_local(self, line):
@@ -71,8 +66,7 @@ class MarkdownImageLocaliser(PageProcessor):
 class MarkdownPageProcessor(PageProcessor):
     HTML_RE = re.compile("\.md$")
 
-    def __init__(self, target_directory, html_formatter: PageProcessor):
-        self.html_formatter = html_formatter
+    def __init__(self, target_directory):
         self.target_directory = target_directory
         self.md = markdown.Markdown(extensions = ['meta'])
 
@@ -81,7 +75,6 @@ class MarkdownPageProcessor(PageProcessor):
         html_path = os.path.join(self.target_directory, markdown_page.directory)
         html, metadata = self.convert_content(markdown_page)
         skeleton_page = SkeletonPage(html_path, html_filename, html, metadata)
-        self.html_formatter.convert(skeleton_page)
         return skeleton_page
 
     def convert_content(self, markdown_page):
