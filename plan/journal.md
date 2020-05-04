@@ -39,3 +39,7 @@ After some refactoring all tests are passing.
 Next, remove successors from each transformer.
 
 All working - time to return to adding functionality from Trello!
+
+18:20 - Navigation tests started. Home page working!
+
+Tomorrow - handle images in background-image metadata.

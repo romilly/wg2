@@ -4,7 +4,6 @@ from hamcrest import assert_that, string_contains_in_order
 
 from hamcrest_helpers.files import contains_files, file_content
 from wg2.builder import SiteBuilder
-from wg2.files import empty_directory
 from wg2.pages import ImageFileCopier
 from wg2.pipeline import PageProcessorPipeline
 from wg2.transformers import PageWriter, HtmlFormatter, MarkdownPageProcessor, MarkdownImageLocaliser
@@ -12,7 +11,6 @@ from wg2.transformers import PageWriter, HtmlFormatter, MarkdownPageProcessor, M
 
 class EndToEndTestCase(unittest.TestCase):
     def setUp(self):
-        empty_directory('generated')
         page_writer = PageWriter()
         html_formatter = HtmlFormatter()
         mdc = MarkdownPageProcessor('generated')
