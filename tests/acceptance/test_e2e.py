@@ -43,8 +43,8 @@ class EndToEndTestCase(unittest.TestCase):
     def test_menu_items_are_on_home_page(self):
         menu_items = self.find_elements_in('generated/index.html').matching('a', class_='nav-link')
         assert_that(len(menu_items), equal_to(4))
-        urls = [menu_item['href'] for menu_item in menu_items]
-        assert_that(urls, equal_to(['index.html','about/about.html','contact/contact.html','https://blog.rareschool.com']))
+        links = [(menu_item['href'], menu_item.text) for menu_item in menu_items]
+        assert_that(links, equal_to([('index.html','Home'),('about/about.html','About'),('contact/contact.html','Contact'),('https://blog.rareschool.com','Blog')]))
 
     def find_elements_in(self, filename):
         html = read(filename)
