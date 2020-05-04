@@ -28,6 +28,9 @@ class TestPage:
     def main_content(self):
         return self.driver.find_element_by_class_name('post-preview').text
 
+    def menu_items(self):
+        return self.driver.find_elements_by_class_name()
+
 
 class IndexPageTestCase(unittest.TestCase):
     @classmethod
