@@ -138,4 +138,4 @@ ENV/
 .idea/
 
 /generated/
-!/templates/index.html
+/templates/index.html
