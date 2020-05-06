@@ -59,10 +59,19 @@ Here are the links:
 1. [Home page](https://blackrockdigital.github.io/startbootstrap-small-business)
 1. [Blog post](https://startbootstrap.com/templates/blog-post/)
 
-So. Preparing for the switch I will
+Prepared for the switch.
   
-1. ~~diff the sample home page and my template so I have a list of stuff to add.~~
-1. commit the current state
-1. delete the current bootstrap stuff and add a clean copy
-1. unzip the two templates
-1. Edit the home page and a post page to see what they are like
+1. diffed the sample home page and my template so I have a list of stuff to add.
+1. committed the current state.
+1. deleted the current bootstrap stuff and add a clean copy
+1. unzipped the two templates
+1. Edited the home page and a post page to see what they are like
+
+The templates use bootstrap 4.3.1, with all that's needed in the vendor directory.
+
+I will leave as much of the current structure unchanged. I'll copy and rename the two index.html files for the start-bootstrap templates into our template directory.
+
+The builder should
+1. copy one of the start-bootstrap template directories to the output directory
+1. do the generation
+

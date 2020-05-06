@@ -72,7 +72,7 @@
 <edge COLOR="#808080"/>
 </node>
 <node TEXT="Tasks" POSITION="right" ID="Freemind_Link_857865306" CREATED="1266488223477" MODIFIED="1266488636684" COLOR="#de5613"/>
-<node TEXT="Review" FOLDED="true" POSITION="left" ID="Freemind_Link_1153466861" CREATED="1266488259116" MODIFIED="1266488895851" COLOR="#fb1802">
+<node TEXT="Review" POSITION="left" ID="Freemind_Link_1153466861" CREATED="1266488259116" MODIFIED="1266488895851" COLOR="#fb1802">
 <icon BUILTIN="xmag"/>
 <node TEXT="WW" ID="Freemind_Link_1466796877" CREATED="1266488965666" MODIFIED="1296303686570" COLOR="#ffcc00" BACKGROUND_COLOR="#006666">
 <icon BUILTIN="button_ok"/>
@@ -97,6 +97,18 @@
 </node>
 <node TEXT="Fridge" ID="Freemind_Link_1954142386" CREATED="1266488793745" MODIFIED="1266488959040" COLOR="#9679df">
 <icon BUILTIN="desktop_new"/>
+<node ID="ID_1295690593" CREATED="1588771363173" MODIFIED="1588771363173"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <pre style="background-color: #ffffff; color: #000000; font-family: DejaVu Sans Mono; font-size: 9.0pt">copy all pdfs to the corresponding locations in the output directory,</pre>
+  </body>
+</html>
+</richcontent>
+</node>
 </node>
 <node TEXT="discoveries" ID="ID_1011483963" CREATED="1485097938875" MODIFIED="1485097984855" COLOR="#00cc33">
 <icon BUILTIN="very_positive"/>
