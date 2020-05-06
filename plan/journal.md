@@ -43,3 +43,26 @@ All working - time to return to adding functionality from Trello!
 18:20 - Navigation tests started. Home page working!
 
 Tomorrow - handle images in background-image metadata.
+
+
+## Monday 04 May 2020
+
+Tomorrow -  try [mobile testing](https://www.axelerant.com/resources/team-blog/how-to-test-and-debug-local-sites-on-mobile-devices-connected-to-a-network)?
+
+## Wednesday 06 May 2020
+
+Not much coding done yesterday, but some profitable research.
+
+I'm going to use two example bootstrap pages and use a CTA card instead of a sticky footer.
+
+Here are the links:
+1. [Home page](https://blackrockdigital.github.io/startbootstrap-small-business)
+1. [Blog post](https://startbootstrap.com/templates/blog-post/)
+
+So. Preparing for the switch I will
+  
+1. ~~diff the sample home page and my template so I have a list of stuff to add.~~
+1. commit the current state
+1. delete the current bootstrap stuff and add a clean copy
+1. unzip the two templates
+1. Edit the home page and a post page to see what they are like

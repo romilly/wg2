@@ -5,7 +5,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 
 
-def start_server(directory: str, host='localhost', port: int = 4443):
+def start_server(directory: str, host='trefusis', port: int = 4443):
     warnings.simplefilter("ignore", ResourceWarning)
     handler_class = partial(SimpleHTTPRequestHandler,
                             directory=directory)

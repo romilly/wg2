@@ -69,6 +69,6 @@ class IndexPageTestCase(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.driver.quit()
+        # cls.driver.quit()
         cls.server.shutdown()
 
