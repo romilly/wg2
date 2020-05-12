@@ -97,3 +97,6 @@ I'm going to change the tests to use test data, not live data (which is a lesson
 
 I'll eventually have Navigation tests (and maybe some others) that use the live data.
 
+I am going to remove the image moving stuff for from the pipeline for now. It will be useful for the blog conversion, but for the main site I will assume that markdown
+uses a local resources/images directory and copy all the files to the output directory.
+

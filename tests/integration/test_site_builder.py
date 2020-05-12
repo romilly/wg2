@@ -8,7 +8,7 @@ from wg2.builder import SiteBuilder
 class SiteBuilderTestCase(unittest.TestCase):
     def test_builder_forwards_each_markdown_page(self):
         converter = MockPageProcessor()
-        builder = SiteBuilder(converter, 'content')
+        builder = SiteBuilder(converter, 'content','tests/generated') # TODO: something else should create the directory
         builder.build_site()
         pages = converter.pages
         homepage = pages[0]
