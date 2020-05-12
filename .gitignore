@@ -139,3 +139,4 @@ ENV/
 
 /generated/
 /templates/index.html
+/tests/generated/
