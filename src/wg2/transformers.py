@@ -32,7 +32,7 @@ class HtmlFormatter(PageProcessor):
         return html_page
 
     def template_for(self, page):
-        t = read('templates/index.html')
+        t = read('content/templates/index.html')
         return Template(t)
 
 
