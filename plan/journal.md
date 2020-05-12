@@ -75,3 +75,25 @@ The builder should
 1. copy one of the start-bootstrap template directories to the output directory
 1. do the generation
 
+
+## Friday 08 May 2020
+
+Some progress yesterday, but mostly a day of reflection.
+
+I'm still getting my head around what I want as the home page CTA.
+
+I'll take a look at some non-shop sites; developerWorks, TW, Raspberry Pi.
+
+
+## Tuesday 12 May 2020
+
+I realised on Saturday that the CTA could be `Ko-fi me`. I'm going to give that a go.
+
+Also, home page content could be a static template to start with, adding news items at the bottom later on.
+
+Generation could also be simpler, with the 3 page locations being hard-coded.
+
+I'm going to change the tests to use test data, not live data (which is a lesson I thought I'd learned long ago).
+
+I'll eventually have Navigation tests (and maybe some others) that use the live data.
+

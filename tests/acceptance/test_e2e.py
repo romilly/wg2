@@ -22,7 +22,7 @@ class EndToEndTestCase(unittest.TestCase):
     def setUp(self):
         page_writer = PageWriter()
         html_formatter = HtmlFormatter()
-        mdc = MarkdownPageProcessor('generated')
+        mdc = MarkdownPageProcessor('tests/generated')
         copier = ImageFileCopier('content', 'generated')
         image_localiser = MarkdownImageLocaliser(copier)
         converter = PageProcessorPipeline(image_localiser, mdc, html_formatter, page_writer)
@@ -34,7 +34,7 @@ class EndToEndTestCase(unittest.TestCase):
         assert_that('generated/index.html', file_content(string_contains_in_order('<html lang="en">','</html>')))
         assert_that('generated/index.html', file_content(string_contains_in_order('<meta name="description" content="Tips, tools and resources for Digital Makers">')))
         assert_that('generated/index.html', file_content(string_contains_in_order('<head>','<title>RARESchool</title>')))
-        assert_that('generated/index.html', file_content(string_contains_in_order('<body>','<h1>RARESchool</h1>')))
+        assert_that('generated/index.html', file_content(string_contains_in_order('<body>','<h1','RARESchool</h1>')))
         assert_that('generated/about/about.html', file_content(string_contains_in_order('<meta name="description" content="Romilly Cocking\'s short biography">')))
 
     def test_images_are_included(self):
@@ -42,7 +42,7 @@ class EndToEndTestCase(unittest.TestCase):
 
     def test_menu_items_are_on_home_page(self):
         menu_items = self.find_elements_in('generated/index.html').matching('a', class_='nav-link')
-        assert_that(len(menu_items), equal_to(4))
+        assert_that(len(menu_items), equal_to(5))
         links = [(menu_item['href'], menu_item.text) for menu_item in menu_items]
         assert_that(links, equal_to([('index.html','Home'),('about/about.html','About'),('contact/contact.html','Contact'),('https://blog.rareschool.com','Blog')]))
 

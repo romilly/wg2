@@ -49,7 +49,7 @@ class IndexPageTestCase(unittest.TestCase):
         converter = PageProcessorPipeline(image_localiser, mdc, html_formatter, page_writer)
         self.site_builder = SiteBuilder(converter, 'content')
         self.site_builder.build_site()
-        self.index_page = TestPage(self.driver, 'https://localhost:4443/index.html')
+        self.index_page = TestPage(self.driver, 'https://trefusis:4443/index.html')
 
     def test_index_page_title(self):
         assert_that(self.index_page.title(), equal_to('RARESchool'))
@@ -69,6 +69,6 @@ class IndexPageTestCase(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls) -> None:
-        # cls.driver.quit()
+        cls.driver.quit()
         cls.server.shutdown()
 
