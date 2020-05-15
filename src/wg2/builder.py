@@ -7,7 +7,9 @@ from wg2.transformers import PageProcessor
 
 BOOTSTRAP_LOCATION = 'bootstrap'
 
+
 class SiteBuilder:
+    # TODO: make file names explicit, hard coded, and simplifiy logic?
     def __init__(self, converter: PageProcessor, content_directory, target_directory):
         self.converter = converter
         self.content_directory = content_directory

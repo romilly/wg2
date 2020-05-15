@@ -5,7 +5,7 @@ from hamcrest import assert_that, string_contains_in_order, equal_to
 
 from hamcrest_helpers.files import contains_files, file_content, read
 from wg2.builder import SiteBuilder
-from wg2.pages import ImageFileCopier
+# from wg2.pages import ImageFileCopier
 from wg2.pipeline import PageProcessorPipeline
 from wg2.transformers import PageWriter, HtmlFormatter, MarkdownPageProcessor, MarkdownImageLocaliser
 
@@ -23,6 +23,7 @@ class EndToEndTestCase(unittest.TestCase):
         page_writer = PageWriter()
         html_formatter = HtmlFormatter()
         mdc = MarkdownPageProcessor('tests/generated')
+        # lines below will be needed when I convert the blog
         # copier = ImageFileCopier('content', 'tests/generated')
         # image_localiser = MarkdownImageLocaliser(copier)
         #converter = PageProcessorPipeline(image_localiser, mdc, html_formatter, page_writer)
