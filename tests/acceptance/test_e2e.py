@@ -22,22 +22,26 @@ class EndToEndTestCase(unittest.TestCase):
     def setUp(self):
         page_writer = PageWriter()
         html_formatter = HtmlFormatter()
-        mdc = MarkdownPageProcessor('tests/generated')
+        self.target_directory = 'tests/generated'
+        mdc = MarkdownPageProcessor(self.target_directory)
         # lines below will be needed when I convert the blog
         # copier = ImageFileCopier('content', 'tests/generated')
         # image_localiser = MarkdownImageLocaliser(copier)
         #converter = PageProcessorPipeline(image_localiser, mdc, html_formatter, page_writer)
         converter = PageProcessorPipeline(mdc, html_formatter, page_writer)
-        self.site_builder = SiteBuilder(converter, 'content', 'tests/generated')
+        self.site_builder = SiteBuilder(converter, 'content', self.target_directory)
         self.site_builder.build_site()
 
     def test_html_pages_are_generated_from_markdown(self):
-        assert_that('tests/generated', contains_files('index.html','about.html', 'contact.html'))
+        self.check_directory_contents(self.target_directory, 'index.html', 'about.html', 'contact.html')
         assert_that('tests/generated/index.html', file_content(string_contains_in_order('<html lang="en">','</html>')))
         assert_that('tests/generated/index.html', file_content(string_contains_in_order('<meta name="description" content="Tips, tools and resources for Digital Makers">')))
         assert_that('tests/generated/index.html', file_content(string_contains_in_order('<head>','<title>RARESchool</title>')))
         assert_that('tests/generated/index.html', file_content(string_contains_in_order('<body>','<h1','RARESchool</h1>')))
         assert_that('tests/generated/about.html', file_content(string_contains_in_order('<meta name="description" content="Romilly Cocking\'s short biography">')))
+
+    def check_directory_contents(self, target_directory, *file_list):
+        assert_that(target_directory, contains_files(*file_list))
 
     def test_images_are_included(self):
         assert_that('tests/generated/about.html', file_content(string_contains_in_order('<img alt="Romilly Cocking" src="resources/images/romilly.jpg" />')))
