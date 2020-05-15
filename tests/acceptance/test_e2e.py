@@ -1,3 +1,4 @@
+import os
 import unittest
 
 from bs4 import BeautifulSoup
@@ -34,11 +35,16 @@ class EndToEndTestCase(unittest.TestCase):
 
     def test_html_pages_are_generated_from_markdown(self):
         self.check_directory_contents(self.target_directory, 'index.html', 'about.html', 'contact.html')
-        assert_that('tests/generated/index.html', file_content(string_contains_in_order('<html lang="en">','</html>')))
-        assert_that('tests/generated/index.html', file_content(string_contains_in_order('<meta name="description" content="Tips, tools and resources for Digital Makers">')))
-        assert_that('tests/generated/index.html', file_content(string_contains_in_order('<head>','<title>RARESchool</title>')))
-        assert_that('tests/generated/index.html', file_content(string_contains_in_order('<body>','<h1','RARESchool</h1>')))
-        assert_that('tests/generated/about.html', file_content(string_contains_in_order('<meta name="description" content="Romilly Cocking\'s short biography">')))
+        self.check_file_contents('index.html', '<html lang="en">', '</html>')
+        self.check_file_contents('index.html',
+                                 '<meta name="description" content="Tips, tools and resources for Digital Makers">')
+        self.check_file_contents('index.html', '<head>', '<title>RARESchool</title>')
+        self.check_file_contents('index.html', '<body>', '<h1', 'RARESchool</h1>')
+        self.check_file_contents('about.html', '<meta name="description" content="Romilly Cocking\'s short biography">')
+
+    def check_file_contents(self, file_to_check, *expected_strings):
+        path = os.path.join(self.target_directory, file_to_check)
+        assert_that(path, file_content(string_contains_in_order(*expected_strings)))
 
     def check_directory_contents(self, target_directory, *file_list):
         assert_that(target_directory, contains_files(*file_list))
