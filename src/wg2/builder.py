@@ -9,7 +9,6 @@ BOOTSTRAP_LOCATION = 'bootstrap'
 
 
 class SiteBuilder:
-    # TODO: make file names explicit, hard coded, and simplifiy logic?
     def __init__(self, converter: PageProcessor, content_directory, target_directory):
         self.converter = converter
         self.content_directory = content_directory
@@ -22,6 +21,7 @@ class SiteBuilder:
         #     self.convert_markdown_files(files, root)
         self.convert_markdown_files(os.listdir(self.content_directory), self.content_directory)
 
+    # TODO: get rid of root; it should be self.content.directory
     def convert_markdown_files(self, files, root):
         for f in files:
             path = os.path.join(root, f)

@@ -3,7 +3,7 @@ Subtitle: Romilly Cocking
 Description: Romilly Cocking's short biography
 Author: Romilly Cocking
 
-![Romilly Cocking](resources/images/romilly.jpg)
+![Romilly Cocking](img/romilly.jpg)
 
 Romilly Cocking has been programming computers since 1958!
 

@@ -23,6 +23,8 @@ class PageWriter(PageProcessor):
 
 
 class HtmlFormatter(PageProcessor):
+    def __init__(self, template_directory):
+        self.template_directory = template_directory
 
     def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
@@ -32,7 +34,7 @@ class HtmlFormatter(PageProcessor):
         return html_page
 
     def template_for(self, page):
-        t = read('content/templates/index.html')
+        t = read(os.path.join(self.template_directory, 'index.html'))
         return Template(t)
 
 

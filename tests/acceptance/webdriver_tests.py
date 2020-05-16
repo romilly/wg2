@@ -47,7 +47,7 @@ class IndexPageTestCase(unittest.TestCase):
         copier = ImageFileCopier('content', 'generated')
         image_localiser = MarkdownImageLocaliser(copier)
         converter = PageProcessorPipeline(image_localiser, mdc, html_formatter, page_writer)
-        self.site_builder = SiteBuilder(converter, 'content')
+        self.site_builder = SiteBuilder(converter, 'content', 'generated')
         self.site_builder.build_site()
         self.index_page = TestPage(self.driver, 'https://trefusis:4443/index.html')
 
@@ -62,7 +62,7 @@ class IndexPageTestCase(unittest.TestCase):
         assert_that(self.index_page.main_content(), contains_string('Looking for clear, current, reliable information'))
 
     def test_css_copied(self):
-        self.assertTrue(os.path.exists('generated/css/starter-template.css'))
+        self.assertTrue(os.path.exists('generated/css/small-business.css'))
 
     def tearDown(self) -> None:
         pass

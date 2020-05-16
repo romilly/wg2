@@ -9,7 +9,7 @@ class SiteBuilderTestCase(unittest.TestCase):
     def test_builder_forwards_each_markdown_page(self):
         converter = MockPageProcessor()
         # TODO: something else should create the target directory
-        builder = SiteBuilder(converter, 'content','tests/generated')
+        builder = SiteBuilder(converter, 'tests/content','tests/generated')
         builder.build_site()
         pages = converter.pages
         homepage = pages[0]

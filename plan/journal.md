@@ -98,7 +98,7 @@ I'm going to change the tests to use test data, not live data (which is a lesson
 I'll eventually have Navigation tests (and maybe some others) that use the live data.
 
 I am going to remove the image moving stuff for from the pipeline for now. It will be useful for the blog conversion, but for the main site I will assume that markdown
-uses a local resources/images directory and copy all the files to the output directory.
+uses a local `img` directory and copy all the files to the output directory.
 
 
 ## Friday 15 May 2020
@@ -106,4 +106,10 @@ uses a local resources/images directory and copy all the files to the output dir
 After a rest, time to resume.
 
 I was tempted to do a third version but that's silly: I can create the core site with the current architecture, and the key thing now is to deliver business value as fast as I can.
+
+All tests are passing but the template is in a muddle; it looks like the old clean-blog template.
+
+## Saturday 16 May 2020
+
+Also, I need to make sure that I have separate contents fro production and test, and that the correct templates are being used.
 
