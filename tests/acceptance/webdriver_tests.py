@@ -42,7 +42,7 @@ class IndexPageTestCase(unittest.TestCase):
 
     def setUp(self) -> None:
         page_writer = PageWriter()
-        html_formatter = HtmlFormatter()
+        html_formatter = HtmlFormatter('content/templates')
         mdc = MarkdownPageProcessor('generated')
         copier = ImageFileCopier('content', 'generated')
         image_localiser = MarkdownImageLocaliser(copier)
