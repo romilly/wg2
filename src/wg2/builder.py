@@ -6,6 +6,7 @@ from wg2.pages import MarkdownPage
 from wg2.transformers import PageProcessor
 
 BOOTSTRAP_LOCATION = 'bootstrap'
+IMAGE_DIRECTORY = 'img'
 
 
 class SiteBuilder:
@@ -17,6 +18,8 @@ class SiteBuilder:
     def build_site(self):
         empty_directory(self.target_directory)
         shutil.copytree(BOOTSTRAP_LOCATION, self.target_directory)
+        shutil.copytree(os.path.join(self.content_directory, IMAGE_DIRECTORY),
+                        os.path.join(self.target_directory, IMAGE_DIRECTORY))
         # for root, directories, files in os.walk(self.content_directory):
         #     self.convert_markdown_files(files, root)
         self.convert_markdown_files(os.listdir(self.content_directory), self.content_directory)

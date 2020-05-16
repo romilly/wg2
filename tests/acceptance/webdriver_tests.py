@@ -25,8 +25,9 @@ class TestPage:
     def metadata(self, name):
         return self.driver.find_element_by_xpath("//meta[@name='%s']" % name).get_attribute("content")
 
-    def main_content(self):
-        return self.driver.find_element_by_class_name('post-preview').text
+    # TODO: replace by tests for the cards
+    # def main_content(self):
+    #     return self.driver.find_element_by_class_name('post-preview').text
 
     def menu_items(self):
         return self.driver.find_elements_by_class_name()
@@ -58,8 +59,8 @@ class IndexPageTestCase(unittest.TestCase):
         assert_that(self.index_page.metadata('description'), equal_to('Tips, tools and resources for Digital Makers'))
         assert_that(self.index_page.metadata('author'), equal_to('Romilly Cocking'))
 
-    def test_index_page_content(self):
-        assert_that(self.index_page.main_content(), contains_string('Looking for clear, current, reliable information'))
+    # def test_index_page_content(self):
+    #     assert_that(self.index_page.main_content(), contains_string('Looking for clear, current, reliable information'))
 
     def test_css_copied(self):
         self.assertTrue(os.path.exists('generated/css/small-business.css'))
