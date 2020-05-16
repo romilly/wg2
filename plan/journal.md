@@ -113,3 +113,7 @@ All tests are passing but the template is in a muddle; it looks like the old cle
 
 Also, I need to make sure that I have separate contents fro production and test, and that the correct templates are being used.
 
+PM: Things are going well, and bow I want to tackle menu highlighting: the menu for each page is slightly different for each page type.
+
+It looks as if the templates used in the non-webdriver tests are old, and based on clean blog, not the small business template.
+
