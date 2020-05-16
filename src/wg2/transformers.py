@@ -33,8 +33,9 @@ class HtmlFormatter(PageProcessor):
         html_page = skeleton_page.html_page(html)
         return html_page
 
-    def template_for(self, page):
-        t = read(os.path.join(self.template_directory, 'index.html'))
+    def template_for(self, page: Page):
+        name, _ = os.path.splitext(page.filename)
+        t = read(os.path.join(self.template_directory, '%s-template.html' % name))
         return Template(t)
 
 

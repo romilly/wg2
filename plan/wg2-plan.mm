@@ -87,7 +87,23 @@
 </node>
 <node TEXT="ready to harvest more form new assets" ID="ID_295920342" CREATED="1589274032924" MODIFIED="1589274042296"/>
 </node>
-<node TEXT="Tasks" POSITION="right" ID="Freemind_Link_857865306" CREATED="1266488223477" MODIFIED="1266488636684" COLOR="#de5613"/>
+<node TEXT="Tasks" POSITION="right" ID="Freemind_Link_857865306" CREATED="1266488223477" MODIFIED="1266488636684" COLOR="#de5613">
+<node TEXT="after mousy reworking" ID="ID_928298690" CREATED="1589625420950" MODIFIED="1589625435320"/>
+<node TEXT="more templates" ID="ID_1002309263" CREATED="1589625435822" MODIFIED="1589625455154">
+<node TEXT="select template based on page type" ID="ID_1674166913" CREATED="1589625465605" MODIFIED="1589625495208">
+<node TEXT="for now, cut and paste template" ID="ID_927989219" CREATED="1589625550100" MODIFIED="1589625565071">
+<node TEXT="author" ID="ID_602984436" CREATED="1589625567004" MODIFIED="1589625573919"/>
+<node TEXT="contact" ID="ID_1519567282" CREATED="1589625574260" MODIFIED="1589625596982"/>
+</node>
+</node>
+<node TEXT="use Environment" ID="ID_1411474410" CREATED="1589625455829" MODIFIED="1589625465169">
+<node TEXT="factor out common stuff" ID="ID_1731077536" CREATED="1589625506013" MODIFIED="1589625535367">
+<node TEXT="review template inheritance" ID="ID_1874891226" CREATED="1589625540924" MODIFIED="1589625547127"/>
+</node>
+<node TEXT="highlight current page in menu" ID="ID_37763048" CREATED="1589625516749" MODIFIED="1589625532035"/>
+</node>
+</node>
+</node>
 <node TEXT="Review" POSITION="left" ID="Freemind_Link_1153466861" CREATED="1266488259116" MODIFIED="1266488895851" COLOR="#fb1802">
 <icon BUILTIN="xmag"/>
 <node TEXT="WW" ID="Freemind_Link_1466796877" CREATED="1266488965666" MODIFIED="1296303686570" COLOR="#ffcc00" BACKGROUND_COLOR="#006666">
@@ -128,6 +144,7 @@
 </node>
 <node TEXT="discoveries" ID="ID_1011483963" CREATED="1485097938875" MODIFIED="1485097984855" COLOR="#00cc33">
 <icon BUILTIN="very_positive"/>
+<node TEXT="PyCharm shows minified css, js as sub-coponents of parent script!" ID="ID_478774411" CREATED="1589625649651" MODIFIED="1589625681181"/>
 </node>
 </node>
 <node TEXT="Record" POSITION="left" ID="Freemind_Link_813012694" CREATED="1266488248876" MODIFIED="1266488728945" COLOR="#27444b">
@@ -135,6 +152,7 @@
 </node>
 <node TEXT="Resources" POSITION="left" ID="Freemind_Link_1594441695" CREATED="1273319832507" MODIFIED="1296303609303" COLOR="#33ff33">
 <icon BUILTIN="password"/>
+<node TEXT="https://getbootstrap.com/docs/4.4/getting-started/contents/#precompiled-bootstrap" ID="ID_1004488106" CREATED="1589625644392" MODIFIED="1589625644392" LINK="https://getbootstrap.com/docs/4.4/getting-started/contents/#precompiled-bootstrap"/>
 </node>
 </node>
 </map>
