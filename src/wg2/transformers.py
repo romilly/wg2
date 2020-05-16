@@ -3,7 +3,7 @@ import re
 from abc import ABC, abstractmethod
 
 import markdown
-from jinja2 import Template
+from jinja2 import Template, Environment, FileSystemLoader
 
 from wg2.files import read
 from wg2.pages import SkeletonPage, MarkdownPage, HtmlPage, ImageCopier, Page
@@ -24,7 +24,7 @@ class PageWriter(PageProcessor):
 
 class HtmlFormatter(PageProcessor):
     def __init__(self, template_directory):
-        self.template_directory = template_directory
+        self.environment = Environment(loader=FileSystemLoader(template_directory))
 
     def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
@@ -35,8 +35,7 @@ class HtmlFormatter(PageProcessor):
 
     def template_for(self, page: Page):
         name, _ = os.path.splitext(page.filename)
-        t = read(os.path.join(self.template_directory, '%s-template.html' % name))
-        return Template(t)
+        return self.environment.get_template('%s-template.html' % name)
 
 
 class MarkdownImageLocaliser(PageProcessor):
