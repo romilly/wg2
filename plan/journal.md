@@ -117,3 +117,6 @@ PM: Things are going well, and bow I want to tackle menu highlighting: the menu 
 
 It looks as if the templates used in the non-webdriver tests are old, and based on clean blog, not the small business template.
 
+I've been puzled by `<span class="sr-only">(current)</span>`; it turns out that `sr-only` indicates that the element is only shown to screen-readres to help with accessability.
+
+So the tests need to check for the presentce/absence of the span as well as the `active` class in the menu item. 

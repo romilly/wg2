@@ -11,6 +11,9 @@ from wg2.pipeline import PageProcessorPipeline
 from wg2.transformers import PageWriter, HtmlFormatter, MarkdownPageProcessor, MarkdownImageLocaliser
 
 
+def first_word(text):
+    return text if '\n ' not in text else text[:text.index('\n')]
+
 class ElementFinder:
     def __init__(self, soup: BeautifulSoup):
         self.soup = soup
@@ -53,9 +56,27 @@ class EndToEndTestCase(unittest.TestCase):
         assert_that('%s/about.html' % self.target_directory, file_content(string_contains_in_order('<img alt="Romilly Cocking" src="img/romilly.jpg" />')))
 
     def test_menu_items_are_on_home_page(self):
-        menu_items = elements_in('%s/index.html' % self.target_directory).matching('a', class_='nav-link')
-        links = [(menu_item['href'], menu_item.text) for menu_item in menu_items]
-        assert_that(links, equal_to([('index.html','Home'),('about.html','About'),('contact.html','Contact'),('https://blog.rareschool.com','Blog')]))
+        menu_links = {'Home'      : 'index.html',
+                      'About'     : 'about.html',
+                      'Contact'   : 'contect.html',
+                      'Resources' : 'resources/index.html',
+                      'Blog'      : 'https://blog.rareschool.com'
+                        }
+        for menu_label in menu_links.keys():
+            expected_parts = [(label, menu_links[label] if menu_label == label else '#', (menu_label == label)) for label in menu_links.keys()]
+        menu_items = elements_in('%s/index.html' % self.target_directory).matching('li', class_='nav-item')
+        parts = [menu_item_parts(menu_item) for menu_item in menu_items]
+        assert_that(parts, equal_to([('Home', '#', True),
+                                     ('About', 'about.html', False),
+                                     ('Contact', 'contact.html', False),
+                                     ('Resources', 'resources/index.html',  False),
+                                     ('Blog', 'https://blog.rareschool.com', False)]))
+
+
+def menu_item_parts(menu_item):
+    anchor = menu_item.find('a')
+    result = first_word(anchor.text), anchor['href'], 'active' in menu_item['class']
+    return result
 
 
 def elements_in(filename):
