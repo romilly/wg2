@@ -26,7 +26,7 @@ class ElementFinder:
 class EndToEndTestCase(unittest.TestCase):
     def setUp(self):
         page_writer = PageWriter()
-        environment = Environment(loader=FileSystemLoader('tests/content/templates'))
+        environment = Environment(loader=FileSystemLoader('templates'))
         html_formatter = HtmlFormatter(environment)
         self.target_directory = 'tests/generated'
         mdc = MarkdownPageProcessor(self.target_directory)

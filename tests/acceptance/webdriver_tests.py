@@ -44,7 +44,7 @@ class IndexPageTestCase(unittest.TestCase):
 
     def setUp(self) -> None:
         page_writer = PageWriter()
-        environment = Environment(loader=FileSystemLoader('content/templates'))
+        environment = Environment(loader=FileSystemLoader('templates'))
         html_formatter = HtmlFormatter(environment)
         mdc = MarkdownPageProcessor('generated')
         copier = ImageFileCopier('content', 'generated')
