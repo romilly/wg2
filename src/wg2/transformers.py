@@ -23,8 +23,8 @@ class PageWriter(PageProcessor):
 
 
 class HtmlFormatter(PageProcessor):
-    def __init__(self, template_directory):
-        self.environment = Environment(loader=FileSystemLoader(template_directory))
+    def __init__(self, environment):
+        self.environment = environment
 
     def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)

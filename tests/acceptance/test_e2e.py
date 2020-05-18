@@ -3,6 +3,7 @@ import unittest
 
 from bs4 import BeautifulSoup
 from hamcrest import assert_that, string_contains_in_order, equal_to
+from jinja2 import Environment, FileSystemLoader
 
 from hamcrest_helpers.files import contains_files, file_content, read
 from wg2.builder import SiteBuilder
@@ -25,7 +26,7 @@ class ElementFinder:
 class EndToEndTestCase(unittest.TestCase):
     def setUp(self):
         page_writer = PageWriter()
-        html_formatter = HtmlFormatter('tests/content/templates')
+        html_formatter = HtmlFormatter(Environment(loader=FileSystemLoader('tests/content/templates')))
         self.target_directory = 'tests/generated'
         mdc = MarkdownPageProcessor(self.target_directory)
         # lines below will be needed when I convert the blog

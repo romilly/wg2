@@ -120,3 +120,17 @@ It looks as if the templates used in the non-webdriver tests are old, and based 
 I've been puzled by `<span class="sr-only">(current)</span>`; it turns out that `sr-only` indicates that the element is only shown to screen-readers to help with accessability.
 
 So the tests could check for the presence/absence of the span as well as the `active` class in the menu item.
+
+## Sunday 17 May 2020
+
+I'm now using inheritance and inclusion for menus.
+
+
+## Monday 18 May 2020
+
+While I still need to keep production and test data separate, there's no reason not to share templates where that is appropriate, so I am going to
+
+1. Provide an environment, rather than a directory, to HtmlFormatter.
+1. Provide a fixed template to the appropriate HtmlFormatter unit test
+1. Use the production templates for the e2e tests as well as the webdriver tests.
+

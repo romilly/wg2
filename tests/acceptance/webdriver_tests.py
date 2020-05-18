@@ -2,6 +2,7 @@ import os
 import unittest
 
 from hamcrest import assert_that, equal_to, contains_string
+from jinja2 import Environment, FileSystemLoader
 from selenium.webdriver import Firefox, DesiredCapabilities
 from selenium.webdriver.firefox.webdriver import WebDriver
 
@@ -43,7 +44,7 @@ class IndexPageTestCase(unittest.TestCase):
 
     def setUp(self) -> None:
         page_writer = PageWriter()
-        html_formatter = HtmlFormatter('content/templates')
+        html_formatter = HtmlFormatter(Environment(loader=FileSystemLoader('content/templates')))
         mdc = MarkdownPageProcessor('generated')
         copier = ImageFileCopier('content', 'generated')
         image_localiser = MarkdownImageLocaliser(copier)
