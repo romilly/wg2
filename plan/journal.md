@@ -134,3 +134,9 @@ While I still need to keep production and test data separate, there's no reason 
 1. Provide a fixed template to the appropriate HtmlFormatter unit test
 1. Use the production templates for the e2e tests as well as the webdriver tests.
 
+Next step: smarter menu generation, with the active page highlit.
+
+That in turn requires generation of a resources index, so I'll add a test for the page and get that passing.
+
+
+

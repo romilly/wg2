@@ -15,11 +15,14 @@ class SiteBuilder:
         self.content_directory = content_directory
         self.target_directory = target_directory
 
-    def build_site(self):
+    def prepare_target_directory(self):
         empty_directory(self.target_directory)
         shutil.copytree(BOOTSTRAP_LOCATION, self.target_directory)
         shutil.copytree(os.path.join(self.content_directory, IMAGE_DIRECTORY),
                         os.path.join(self.target_directory, IMAGE_DIRECTORY))
+
+    def build_site(self):
+        self.prepare_target_directory()
         # for root, directories, files in os.walk(self.content_directory):
         #     self.convert_markdown_files(files, root)
         self.convert_markdown_files(os.listdir(self.content_directory), self.content_directory)
