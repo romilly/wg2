@@ -26,7 +26,8 @@ class ElementFinder:
 class EndToEndTestCase(unittest.TestCase):
     def setUp(self):
         page_writer = PageWriter()
-        html_formatter = HtmlFormatter(Environment(loader=FileSystemLoader('tests/content/templates')))
+        environment = Environment(loader=FileSystemLoader('tests/content/templates'))
+        html_formatter = HtmlFormatter(environment)
         self.target_directory = 'tests/generated'
         mdc = MarkdownPageProcessor(self.target_directory)
         # lines below will be needed when I convert the blog

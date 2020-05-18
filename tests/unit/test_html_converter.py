@@ -28,7 +28,8 @@ BAR_TEMPLATE = """
 
 class HtmlConverterTestCase(unittest.TestCase):
     def test_creates_html_page_from_markdown(self):
-        formatter = HtmlFormatter(Environment(loader=DictLoader({'bar-template.html': BAR_TEMPLATE})))
+        loader = DictLoader({'bar-template.html': BAR_TEMPLATE})
+        formatter = HtmlFormatter(Environment(loader=loader))
         skeleton_page = SkeletonPage('foo/','bar.html', '<p>Here is the stuff</p>', {'title': 'Wow!'})
         html_page = formatter.convert(skeleton_page)
         assert_that(html_page.contents(), string_contains_in_order('<title>Wow!</title>','<h1>Wow!</h1>','<p>Here is the stuff</p>'))
