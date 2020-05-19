@@ -23,11 +23,9 @@ class SiteBuilder:
 
     def build_site(self):
         self.prepare_target_directory()
-        # for root, directories, files in os.walk(self.content_directory):
-        #     self.convert_markdown_files(files, root)
-        self.convert_markdown_files(os.listdir(self.content_directory), self.content_directory)
+        for root, directories, files in os.walk(self.content_directory):
+            self.convert_markdown_files(files, root)
 
-    # TODO: get rid of root; it should be self.content.directory
     def convert_markdown_files(self, files, root):
         for f in files:
             path = os.path.join(root, f)

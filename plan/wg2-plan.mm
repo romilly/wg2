@@ -142,6 +142,7 @@
 </html>
 </richcontent>
 </node>
+<node TEXT="replace the core bootstrap files by cdn links" ID="ID_328820915" CREATED="1589876012582" MODIFIED="1589876027136"/>
 </node>
 <node TEXT="discoveries" ID="ID_1011483963" CREATED="1485097938875" MODIFIED="1485097984855" COLOR="#00cc33">
 <icon BUILTIN="very_positive"/>

@@ -33,9 +33,12 @@ class HtmlFormatter(PageProcessor):
         html_page = skeleton_page.html_page(html)
         return html_page
 
+    # TODO: find correct template for resources index
     def template_for(self, page: Page):
         name, _ = os.path.splitext(page.filename)
-        return self.environment.get_template('%s-template.html' % name)
+        template_name_name = 'resources-template.html' if page.directory.endswith('resources')\
+            else '%s-template.html' % name
+        return self.environment.get_template(template_name_name)
 
 
 class MarkdownImageLocaliser(PageProcessor):

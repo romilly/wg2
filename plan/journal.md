@@ -117,7 +117,7 @@ PM: Things are going well, and bow I want to tackle menu highlighting: the menu 
 
 It looks as if the templates used in the non-webdriver tests are old, and based on clean blog, not the small business template.
 
-I've been puzled by `<span class="sr-only">(current)</span>`; it turns out that `sr-only` indicates that the element is only shown to screen-readers to help with accessability.
+I've been puzled by `<span class="sr-only">(current)</span>`; it turns out that `sr-only` indicates that the element is only shown to screen-readers to help with accessibility.
 
 So the tests could check for the presence/absence of the span as well as the `active` class in the menu item.
 
@@ -139,4 +139,10 @@ Next step: smarter menu generation, with the active page highlit.
 That in turn requires generation of a resources index, so I'll add a test for the page and get that passing.
 
 
+## Tuesday 19 May 2020
+
+I realised two things before I started work this morning:
+ 
+1. I don't *have* to generate the resources index page from multiple resources and create it in a separate directory
+1. The old tree-walking code should create a resources index page in the resources sub-directory anyway, and I could then just put the resources material into the resources template.
 
