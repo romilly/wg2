@@ -13,5 +13,5 @@ class SiteBuilderTestCase(unittest.TestCase):
         builder.build_site()
         pages = converter.pages
         homepage = pages[0]
-        assert_that(len(pages), equal_to(3))
+        assert_that(len(pages), equal_to(4))
         assert_that(homepage.directory, equal_to(''))

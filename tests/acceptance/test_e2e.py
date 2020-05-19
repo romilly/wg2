@@ -40,8 +40,8 @@ class EndToEndTestCase(unittest.TestCase):
 
     def test_html_pages_are_generated_from_markdown(self):
         self.check_directory_contents(self.target_directory, 'index.html', 'about.html', 'contact.html')
-        # self.check_directory_contents( os.path.join(self.target_directory, 'resources','index.html'),
-        #                               'index.html')
+        self.check_directory_contents( os.path.join(self.target_directory, 'resources'),
+                                      'index.html')
         self.check_file_contents('index.html', '<html', '</html>')
         self.check_file_contents('index.html',
                                  '<meta name="description" content="Tips, tools and resources for Digital Makers">')

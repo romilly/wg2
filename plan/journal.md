@@ -146,3 +146,5 @@ I realised two things before I started work this morning:
 1. I don't *have* to generate the resources index page from multiple resources and create it in a separate directory
 1. The old tree-walking code should create a resources index page in the resources sub-directory anyway, and I could then just put the resources material into the resources template.
 
+Next step: get menus done.
+
