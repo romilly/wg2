@@ -10,4 +10,3 @@ def read(f):
 def empty_directory(directory):
     if os.path.exists(directory):
         shutil.rmtree(directory)
-    # os.mkdir(directory)

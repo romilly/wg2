@@ -1,11 +1,10 @@
 import os
 import re
 from abc import ABC, abstractmethod
+from collections import namedtuple
 
 import markdown
-from jinja2 import Template, Environment, FileSystemLoader
 
-from wg2.files import read
 from wg2.pages import SkeletonPage, MarkdownPage, HtmlPage, ImageCopier, Page
 
 
@@ -22,6 +21,9 @@ class PageWriter(PageProcessor):
             html_file.write(html_page.contents())
 
 
+menu_item = namedtuple('MenuItem', ['href', 'label'])
+
+
 class HtmlFormatter(PageProcessor):
     def __init__(self, environment):
         self.environment = environment
@@ -29,16 +31,24 @@ class HtmlFormatter(PageProcessor):
     def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
         skeleton_page.metadata['script_prefix'] = skeleton_page.depth()*'../'
+        skeleton_page.metadata['menu_items'] = self.menu_items_for(skeleton_page)
         html = template.render(contents=skeleton_page.contents(), **skeleton_page.metadata)
         html_page = skeleton_page.html_page(html)
         return html_page
 
-    # TODO: find correct template for resources index
     def template_for(self, page: Page):
         name, _ = os.path.splitext(page.filename)
         template_name_name = 'resources-template.html' if page.directory.endswith('resources')\
             else '%s-template.html' % name
         return self.environment.get_template(template_name_name)
+
+    def menu_items_for(self, skeleton_page: SkeletonPage):
+        items = {'Home' : 'index.html',
+                 'About': 'about.html',
+                 'Contact': 'contact.html',
+                 'Resources': 'resources/index.html'
+        }
+        return [menu_item('#' if label == skeleton_page.page_type() else items[label], label) for label in items.keys()]
 
 
 class MarkdownImageLocaliser(PageProcessor):

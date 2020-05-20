@@ -18,6 +18,7 @@ class Page:
     def depth(self):
         return len([ch for ch in self.directory if ch == '/']) - 1
 
+
 class HtmlPage(Page):
     pass
 
@@ -40,6 +41,9 @@ class SkeletonPage(Page):
 
     def html_page(self, contents):
         return HtmlPage(self.directory, self.filename, contents)
+
+    def page_type(self):
+        return self.metadata['type']
 
 
 class ImageFileCopier(ImageCopier):

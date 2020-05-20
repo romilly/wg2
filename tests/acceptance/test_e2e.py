@@ -59,31 +59,39 @@ class EndToEndTestCase(unittest.TestCase):
     def test_images_are_included(self):
         assert_that('%s/about.html' % self.target_directory, file_content(string_contains_in_order('<img alt="Romilly Cocking" src="img/romilly.jpg" />')))
 
-    def test_menu_items_are_on_home_page(self):
+    def test_only_home_is_current_on_home_page(self):
         menu_links = {'Home'      : 'index.html',
                       'About'     : 'about.html',
                       'Contact'   : 'contact.html',
                       'Resources' : 'resources/index.html',
                       'Blog'      : 'https://blog.rareschool.com'
                         }
-        for menu_label in menu_links.keys():
-            expected_parts = [(label, menu_links[label] if menu_label != label else '#', (menu_label == label)) for label in menu_links.keys()]
-            page = menu_links[menu_label]
-            if not page.startswith('htpps:'):
-                menu_items = elements_in('%s/%s' % (self.target_directory, page)).matching('li', class_='nav-item')
-                parts = [menu_item_parts(menu_item) for menu_item in menu_items]
-                assert_that(parts, equal_to(expected_parts))
-        # menu_items = elements_in('%s/index.html' % self.target_directory).matching('li', class_='nav-item')
-        # parts = [menu_item_parts(menu_item) for menu_item in menu_items]
-        # assert_that(parts, equal_to([('Home', '#', True),
-        #                              ('About', 'about.html', False),
-        #                              ('Contact', 'contact.html', False),
-        #                              ('Resources', 'resources/index.html',  False),
-        #                              ('Blog', 'https://blog.rareschool.com', False)]))
+        # for menu_label in menu_links.keys():
+        #     expected_parts = [(label, menu_links[label] if menu_label != label else '#', (menu_label == label)) for label in menu_links.keys()]
+        #     page = menu_links[menu_label]
+        #     if not page.startswith('htpps:'):
+        #         menu_items = elements_in('%s/%s' % (self.target_directory, page)).matching('li', class_='nav-item')
+        #         parts = [menu_item_parts(menu_item) for menu_item in menu_items]
+        #         assert_that(parts, equal_to(expected_parts))
+        menu_items = elements_in('%s/index.html' % self.target_directory).matching('li', class_='nav-item')
+        parts = [menu_item_parts(menu_item) for menu_item in menu_items]
+        assert_that(parts, equal_to([('Home', '#', True),
+                                     ('About', 'about.html', False),
+                                     ('Contact', 'contact.html', False),
+                                     ('Resources', 'resources/index.html',  False),
+                                     ('Blog', 'https://blog.rareschool.com', False)]))
+        menu_items = elements_in('%s/about.html' % self.target_directory).matching('li', class_='nav-item')
+        parts = [menu_item_parts(menu_item) for menu_item in menu_items]
+        assert_that(parts, equal_to([('Home', 'index.html', False),
+                                     ('About', '#', True),
+                                     ('Contact', 'contact.html', False),
+                                     ('Resources', 'resources/index.html', False),
+                                     ('Blog', 'https://blog.rareschool.com', False)]))
 
 
 def menu_item_parts(menu_item):
     anchor = menu_item.find('a')
+    # TODO: add test fro current span
     result = first_word(anchor.text), anchor['href'], 'active' in menu_item['class']
     return result
 
