@@ -97,13 +97,16 @@
 <node TEXT="contact" ID="ID_1519567282" CREATED="1589625574260" MODIFIED="1589625596982"/>
 </node>
 </node>
-<node TEXT="use Environment" ID="ID_1411474410" CREATED="1589625455829" MODIFIED="1589625465169">
+<node TEXT="use Environment" ID="ID_1411474410" CREATED="1589625455829" MODIFIED="1589971097119">
+<icon BUILTIN="button_ok"/>
 <node TEXT="factor out common stuff" ID="ID_1731077536" CREATED="1589625506013" MODIFIED="1589625535367">
 <node TEXT="review template inheritance" ID="ID_1874891226" CREATED="1589625540924" MODIFIED="1589625547127"/>
 </node>
 <node TEXT="highlight current page in menu" ID="ID_37763048" CREATED="1589625516749" MODIFIED="1589625532035"/>
 </node>
 </node>
+<node TEXT="use &apos;post&apos; page template for about, contents" ID="ID_1902461802" CREATED="1589971109490" MODIFIED="1589971159347"/>
+<node TEXT="add realistic template for resources" ID="ID_458309720" CREATED="1589971137002" MODIFIED="1589971175623"/>
 </node>
 <node TEXT="Review" POSITION="left" ID="Freemind_Link_1153466861" CREATED="1266488259116" MODIFIED="1266488895851" COLOR="#fb1802">
 <icon BUILTIN="xmag"/>
