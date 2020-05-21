@@ -35,6 +35,5 @@ class HtmlConverterTestCase(unittest.TestCase):
                                      {'title': 'Wow!', 'type': 'Anything'})
         html_page = formatter.convert(skeleton_page)
         assert_that(html_page.contents(), string_contains_in_order('<title>Wow!</title>','<h1>Wow!</h1>','<p>Here is the stuff</p>'))
-        assert_that(html_page.depth(), equal_to(0))
 
 
