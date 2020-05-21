@@ -1,28 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="{{ description }}">
-  <meta name="author" content="{{ author }}">
-
-  <title>{{ title }}</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="{{ script_prefix }}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="{{ script_prefix }}vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-  <!-- Custom styles for this template -->
-  <link href="{{ script_prefix }}css/clean-blog.min.css" rel="stylesheet">
-  <link href="{{ script_prefix }}css/sticky-footer.min.css" rel="stylesheet">
-
-</head>
+{% include 'head-template.html' with context %}
 
 <body>
 
@@ -58,48 +37,10 @@
   <hr>
 
   <!-- Footer -->
-  <footer footer mt-auto py-3>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <ul class="list-inline text-center">
-            <li class="list-inline-item">
-              <a href="https://twitter.com/rareblog">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.facebook.com/rareblog/">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://github.com/romilly">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          </ul>
-          <p class="copyright text-muted">Copyright &copy; Romilly Cocking 2008-2020</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{ script_prefix }}vendor/jquery/jquery.min.js"></script>
-  <script src="{{ script_prefix }}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  {% include 'footer-template.html' with context %}
 
   <!-- Custom scripts for this template -->
-  <script src="{{ script_prefix }}js/clean-blog.min.js"></script>
+  <script src="{{ script_prefix }}css/blog-post.css"></script>
 
 </body>
 

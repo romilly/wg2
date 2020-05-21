@@ -68,15 +68,15 @@ class EndToEndTestCase(unittest.TestCase):
                         }
         parts = self.page_menu_parts('index.html')
         assert_that(parts, equal_to([('Home', '#', True),
-                                     ('About', 'about.html', False),
-                                     ('Contact', 'contact.html', False),
-                                     ('Resources', 'resources/index.html',  False),
+                                     ('About', '/about.html', False),
+                                     ('Contact', '/contact.html', False),
+                                     ('Resources', '/resources/index.html',  False),
                                      ('Blog', 'https://blog.rareschool.com', False)]))
         parts = self.page_menu_parts('about.html')
-        assert_that(parts, equal_to([('Home', 'index.html', False),
+        assert_that(parts, equal_to([('Home', '/index.html', False),
                                      ('About', '#', True),
-                                     ('Contact', 'contact.html', False),
-                                     ('Resources', 'resources/index.html', False),
+                                     ('Contact', '/contact.html', False),
+                                     ('Resources', '/resources/index.html', False),
                                      ('Blog', 'https://blog.rareschool.com', False)]))
 
     def page_menu_parts(self, page):

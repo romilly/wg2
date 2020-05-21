@@ -18,7 +18,8 @@ class PageWriter(PageProcessor):
     def convert(self, html_page: SkeletonPage):
         os.makedirs(html_page.directory, exist_ok=True)
         with open(html_page.path(),'w') as html_file:
-            html_file.write(html_page.contents())
+            contents = html_page.contents()
+            html_file.write(contents)
 
 
 menu_item = namedtuple('MenuItem', ['href', 'label'])
@@ -30,7 +31,8 @@ class HtmlFormatter(PageProcessor):
 
     def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
-        skeleton_page.metadata['script_prefix'] = skeleton_page.depth()*'../'
+        # skeleton_page.metadata['script_prefix'] = skeleton_page.depth()*'../'
+        skeleton_page.metadata['script_prefix'] = '/'
         skeleton_page.metadata['menu_items'] = self.menu_items_for(skeleton_page)
         html = template.render(contents=skeleton_page.contents(), **skeleton_page.metadata)
         html_page = skeleton_page.html_page(html)
@@ -43,10 +45,10 @@ class HtmlFormatter(PageProcessor):
         return self.environment.get_template(template_name_name)
 
     def menu_items_for(self, skeleton_page: SkeletonPage):
-        items = {'Home' : 'index.html',
-                 'About': 'about.html',
-                 'Contact': 'contact.html',
-                 'Resources': 'resources/index.html'
+        items = {'Home' : '/index.html',
+                 'About': '/about.html',
+                 'Contact': '/contact.html',
+                 'Resources': '/resources/index.html'
         }
         return [menu_item('#' if label == skeleton_page.page_type() else items[label], label) for label in items.keys()]
 
