@@ -1,22 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="{{ description }}">
-  <meta name="author" content="{{ author }}">
-
-  <title>{{ title }}</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="{{ script_prefix }}css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="{{ script_prefix }}css/small-business.css" rel="stylesheet">
-
-</head>
+{% include 'head-template.html' with context %}
 
 <body>
 
@@ -97,17 +82,7 @@
   </div>
   <!-- /.container -->
 
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{ script_prefix }}jquery/jquery.min.js"></script>
-  <script src="{{ script_prefix }}js/bootstrap.bundle.min.js"></script>
+  {% include 'footer-template.html' with context %}
 
 </body>
 

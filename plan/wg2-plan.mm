@@ -88,8 +88,10 @@
 <node TEXT="ready to harvest more form new assets" ID="ID_295920342" CREATED="1589274032924" MODIFIED="1589274042296"/>
 </node>
 <node TEXT="Tasks" POSITION="right" ID="Freemind_Link_857865306" CREATED="1266488223477" MODIFIED="1266488636684" COLOR="#de5613">
+<node TEXT="iteration 1 (publish)" ID="ID_204085914" CREATED="1590048887114" MODIFIED="1590048899259">
 <node TEXT="after mousy reworking" ID="ID_928298690" CREATED="1589625420950" MODIFIED="1589625435320"/>
-<node TEXT="more templates" ID="ID_1002309263" CREATED="1589625435822" MODIFIED="1589625455154">
+<node TEXT="more templates" ID="ID_1002309263" CREATED="1589625435822" MODIFIED="1590058001180">
+<icon BUILTIN="button_ok"/>
 <node TEXT="select template based on page type" ID="ID_1674166913" CREATED="1589625465605" MODIFIED="1589625495208">
 <node TEXT="for now, cut and paste template" ID="ID_927989219" CREATED="1589625550100" MODIFIED="1589631837859">
 <icon BUILTIN="button_ok"/>
@@ -105,8 +107,29 @@
 <node TEXT="highlight current page in menu" ID="ID_37763048" CREATED="1589625516749" MODIFIED="1589625532035"/>
 </node>
 </node>
-<node TEXT="use &apos;post&apos; page template for about, contents" ID="ID_1902461802" CREATED="1589971109490" MODIFIED="1589971159347"/>
-<node TEXT="add realistic template for resources" ID="ID_458309720" CREATED="1589971137002" MODIFIED="1589971175623"/>
+<node TEXT="use &apos;post&apos; page template for about, contents, resources" ID="ID_1902461802" CREATED="1589971109490" MODIFIED="1590053551703"/>
+<node TEXT="test navigation" ID="ID_547552255" CREATED="1590048917118" MODIFIED="1590048930239">
+<node TEXT="for each page" ID="ID_1892104326" CREATED="1590053562339" MODIFIED="1590053571302">
+<node TEXT="check title, css" ID="ID_12087245" CREATED="1590053572299" MODIFIED="1590053578574"/>
+<node TEXT="check menu" ID="ID_1657215769" CREATED="1590053579067" MODIFIED="1590053609725"/>
+</node>
+</node>
+<node TEXT="add google tracking" ID="ID_294215320" CREATED="1590049025035" MODIFIED="1590049035937"/>
+<node TEXT="improvements" ID="ID_1818217776" CREATED="1590048930582" MODIFIED="1590048952272">
+<node TEXT="list" ID="ID_905006958" CREATED="1590048953094" MODIFIED="1590048956235">
+<node TEXT="expand on" ID="ID_727948077" CREATED="1590052293195" MODIFIED="1590053534377"/>
+</node>
+<node TEXT="MoSCoW" ID="ID_590626540" CREATED="1590048956672" MODIFIED="1590048961625"/>
+</node>
+<node TEXT="add fixed content" ID="ID_1424701281" CREATED="1590049041765" MODIFIED="1590049053816"/>
+<node TEXT="review" ID="ID_532947221" CREATED="1590049058597" MODIFIED="1590049060760"/>
+<node TEXT="publish" ID="ID_1782394911" CREATED="1590048970486" MODIFIED="1590048976745"/>
+<node TEXT="retrospective" ID="ID_436885696" CREATED="1590049065229" MODIFIED="1590049069504"/>
+</node>
+<node TEXT="Iteration 2 (enhance)" ID="ID_1914029268" CREATED="1590048980174" MODIFIED="1590048992105">
+<node TEXT="add widget, menus to blog" ID="ID_605224313" CREATED="1590048994486" MODIFIED="1590049007441"/>
+<node TEXT="boost traffic" ID="ID_1409014966" CREATED="1590049014133" MODIFIED="1590049018514"/>
+</node>
 </node>
 <node TEXT="Review" POSITION="left" ID="Freemind_Link_1153466861" CREATED="1266488259116" MODIFIED="1266488895851" COLOR="#fb1802">
 <icon BUILTIN="xmag"/>
@@ -158,6 +181,7 @@
 <node TEXT="Resources" POSITION="left" ID="Freemind_Link_1594441695" CREATED="1273319832507" MODIFIED="1296303609303" COLOR="#33ff33">
 <icon BUILTIN="password"/>
 <node TEXT="https://getbootstrap.com/docs/4.4/getting-started/contents/#precompiled-bootstrap" ID="ID_1004488106" CREATED="1589625644392" MODIFIED="1589625644392" LINK="https://getbootstrap.com/docs/4.4/getting-started/contents/#precompiled-bootstrap"/>
+<node TEXT="https://bootstrapcreative.com/can-adjust-text-size-bootstrap-responsive-design/" ID="ID_530780523" CREATED="1590065412774" MODIFIED="1590065412774" LINK="https://bootstrapcreative.com/can-adjust-text-size-bootstrap-responsive-design/"/>
 </node>
 </node>
 </map>

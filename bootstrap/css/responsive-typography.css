@@ -1,0 +1,4 @@
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  p {font-size:1.4rem;} /*1rem = 16px*/
+}

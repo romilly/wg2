@@ -148,3 +148,21 @@ I realised two things before I started work this morning:
 
 Next step: get menus done.
 
+## Thursday 21 May 2020
+
+Lots more progress.
+
+Asset links now start with a /.
+
+Menus are looking good.
+
+All pages are styled, though the templates need work.
+
+### Responsive fonts
+
+I tweaked [this example](https://bootstrapcreative.com/can-adjust-text-size-bootstrap-responsive-design/) to change the paragraph font size on large screens.
+
+I've also just spotted that `small-business.css` and `blog-post.css` are identical, so I'll get rid of one of them which will simplify the header stuff.
+
+
+

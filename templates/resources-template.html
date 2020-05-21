@@ -1,4 +1,47 @@
-{% extends "base-template.html" %}
-{% block content %}
-    <p>Like what you find here?</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'head-template.html' with context %}
+
+<body>
+
+  <!-- Navigation -->
+    {% include 'navigation.html' with context %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ background_image }})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{{ title }}</h1>
+            <span class="subheading">{{ subtitle }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          {{ contents }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  {% include 'footer-template.html' with context %}
+
+  <!-- Custom scripts for this template -->
+  <script src="{{ script_prefix }}css/blog-post.css"></script>
+
+</body>
+
+</html>

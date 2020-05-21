@@ -31,7 +31,6 @@ class HtmlFormatter(PageProcessor):
 
     def convert(self, skeleton_page: SkeletonPage) -> HtmlPage:
         template = self.template_for(skeleton_page)
-        # skeleton_page.metadata['script_prefix'] = skeleton_page.depth()*'../'
         skeleton_page.metadata['menu_items'] = self.menu_items_for(skeleton_page)
         html = template.render(contents=skeleton_page.contents(), **skeleton_page.metadata)
         html_page = skeleton_page.html_page(html)
