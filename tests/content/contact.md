@@ -1,5 +1,6 @@
 Title: How to get in touch
-Type: Contact
+Type: Info
+Label: Contact
 
 
 ping me!

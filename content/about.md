@@ -2,7 +2,8 @@ Title: About the Author
 Subtitle: Romilly Cocking
 Description: Romilly Cocking's short biography
 Author: Romilly Cocking
-Type: About
+Type: Info
+Label: About
 
 ![Romilly Cocking](img/romilly.jpg)
 

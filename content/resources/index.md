@@ -1,4 +1,5 @@
 Type: Resources
+Label: Resources
 
 Here are lots of resources!
 

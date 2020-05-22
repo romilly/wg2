@@ -42,6 +42,9 @@ class SkeletonPage(Page):
     def page_type(self):
         return self.metadata['type']
 
+    def label(self):
+        return self.metadata['label']
+
 
 class ImageFileCopier(ImageCopier):
     IMG_DIRECTORY = 'img'

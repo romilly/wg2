@@ -1,1 +1,2 @@
 Type: Resources
+Label: Resources

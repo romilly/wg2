@@ -26,6 +26,10 @@ menu_item = namedtuple('MenuItem', ['href', 'label'])
 
 
 class HtmlFormatter(PageProcessor):
+    TEMPLATES = {'Home' : 'index-template.html',
+                 'Info' : 'info-template.html' ,
+                 'Resources': 'resources-template.html'
+                }
     def __init__(self, environment):
         self.environment = environment
 
@@ -36,11 +40,9 @@ class HtmlFormatter(PageProcessor):
         html_page = skeleton_page.html_page(html)
         return html_page
 
-    def template_for(self, page: Page):
-        name, _ = os.path.splitext(page.filename)
-        template_name_name = 'resources-template.html' if page.directory.endswith('resources')\
-            else '%s-template.html' % name
-        return self.environment.get_template(template_name_name)
+    def template_for(self, page: SkeletonPage):
+        template_name = self.TEMPLATES[page.page_type()]
+        return self.environment.get_template(template_name)
 
     def menu_items_for(self, skeleton_page: SkeletonPage):
         items = {'Home' : '/index.html',
@@ -48,7 +50,7 @@ class HtmlFormatter(PageProcessor):
                  'Contact': '/contact.html',
                  'Resources': '/resources/index.html'
         }
-        return [menu_item('#' if label == skeleton_page.page_type() else items[label], label) for label in items.keys()]
+        return [menu_item('#' if label == skeleton_page.label() else items[label], label) for label in items.keys()]
 
 
 class MarkdownImageLocaliser(PageProcessor):
