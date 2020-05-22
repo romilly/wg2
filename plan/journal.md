@@ -165,4 +165,26 @@ I tweaked [this example](https://bootstrapcreative.com/can-adjust-text-size-boot
 I've also just spotted that `small-business.css` and `blog-post.css` are identical, so I'll get rid of one of them which will simplify the header stuff.
 
 
+## Friday 22 May 2020
+
+Again, lots of progress.
+
+I can position and size images using html/css tags; I will add a markdown pre-processor to automate this.
+
+The site is beginning to look good on both desktop and mobile. There is more work to do, but I hope to get the new site up this week-wend.
+
+Today:
+
+1. Add social media stuff to footer.
+1. Focus on content
+    1. cards + CTA on home page
+    1. Contents of contact us
+    1. intro to resources
+    1. contents of resources
+        1. Pages for three books
+        1. Three talks
+        1. Mini-guides
+1. Sort out images
+    1. Home page image is too busy
+    1. Resources needs a new book-cover based image
 
