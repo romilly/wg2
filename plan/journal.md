@@ -175,9 +175,12 @@ The site is beginning to look good on both desktop and mobile. There is more wor
 
 Today:
 
-1. Add social media stuff to footer.
+1. ~~Add social media stuff to footer.~~
 1. Focus on content
     1. cards + CTA on home page
+        1. Free resources
+        1. Books
+        1. Blog
     1. Contents of contact us
     1. intro to resources
     1. contents of resources

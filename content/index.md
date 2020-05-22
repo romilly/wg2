@@ -7,5 +7,5 @@ Type: Home
 
 Looking for clear, current, reliable information and ideas to help you build successful digital projects?
 
-Explore a decade of [blog posts](https://blog.rareschool.com) and a growing collection of books, guides, talks and courses.
+Explore a growing collection of books, free guides, talks and a decade of [blog posts for digital makers](https://blog.rareschool.com). 
 

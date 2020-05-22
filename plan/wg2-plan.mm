@@ -85,7 +85,7 @@
 <node TEXT="migrate" ID="ID_1535858114" CREATED="1589274126355" MODIFIED="1589274129277"/>
 </node>
 </node>
-<node TEXT="ready to harvest more form new assets" ID="ID_295920342" CREATED="1589274032924" MODIFIED="1589274042296"/>
+<node TEXT="ready to harvest more from new assets" ID="ID_295920342" CREATED="1589274032924" MODIFIED="1590136357755"/>
 </node>
 <node TEXT="Tasks" POSITION="right" ID="Freemind_Link_857865306" CREATED="1266488223477" MODIFIED="1266488636684" COLOR="#de5613">
 <node TEXT="iteration 1 (publish)" ID="ID_204085914" CREATED="1590048887114" MODIFIED="1590048899259">
@@ -182,6 +182,7 @@
 <icon BUILTIN="password"/>
 <node TEXT="https://getbootstrap.com/docs/4.4/getting-started/contents/#precompiled-bootstrap" ID="ID_1004488106" CREATED="1589625644392" MODIFIED="1589625644392" LINK="https://getbootstrap.com/docs/4.4/getting-started/contents/#precompiled-bootstrap"/>
 <node TEXT="https://bootstrapcreative.com/can-adjust-text-size-bootstrap-responsive-design/" ID="ID_530780523" CREATED="1590065412774" MODIFIED="1590065412774" LINK="https://bootstrapcreative.com/can-adjust-text-size-bootstrap-responsive-design/"/>
+<node TEXT="website plan" ID="ID_1136531652" CREATED="1590136375849" MODIFIED="1590136406423" LINK="../../website/plan/website-plan.mm"/>
 </node>
 </node>
 </map>
