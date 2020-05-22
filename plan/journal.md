@@ -177,7 +177,7 @@ Today:
 
 1. ~~Add social media stuff to footer.~~
 1. Focus on content
-    1. cards + CTA on home page
+    1. ~~cards + CTA on home page~~
         1. Free resources
         1. Books
         1. Blog
