@@ -2,7 +2,7 @@ Title: Contact us!
 Type: Info
 Label: Contact
 
-RAREkits is the trading name of Romilly Cocking; RAREblog is my technical blog.
+RAREkits is the trading name of [Romilly Cocking](/about.html); RAREblog is his technical blog.
 
 RAREkits is a virtual business, with no office or shop.
 
