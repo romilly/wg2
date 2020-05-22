@@ -5,7 +5,9 @@ Author: Romilly Cocking
 Type: Info
 Label: About
 
-![Romilly Cocking](img/romilly.jpg)
+
+<img alt='romilly' class="rounded float-right p-2" src='/img/romilly.jpg' width=20%/>
+
 
 Romilly Cocking has been programming computers since 1958!
 
