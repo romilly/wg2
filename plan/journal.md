@@ -178,10 +178,16 @@ Today:
 1. ~~Add social media stuff to footer.~~
 1. Focus on content
     1. ~~cards + CTA on home page~~
-        1. Free resources
-        1. Books
-        1. Blog
-    1. Contents of contact us
+    1. ~~Contents of contact us~~
+
+
+## Saturday 23 May 2020
+
+More progress.
+
+Today:
+
+1. Focus on content
     1. intro to resources
     1. contents of resources
         1. Pages for three books
@@ -190,4 +196,3 @@ Today:
 1. Sort out images
     1. Home page image is too busy
     1. Resources needs a new book-cover based image
-
