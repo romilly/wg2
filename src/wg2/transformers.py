@@ -99,7 +99,6 @@ class MarkdownPageProcessor(PageProcessor):
         html = self.md.convert(markdown_page.contents())
         metadata = self.md.Meta
         for key in metadata:
-            if len(metadata[key]) == 1:
-                metadata[key] = metadata[key][0]  # meta should contain values, not singleton lists of values!
+            metadata[key] = ' '.join(metadata[key]) # meta should contain values, not lists of values!
         return html, metadata
 
